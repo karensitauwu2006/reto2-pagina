@@ -161,3 +161,47 @@
             </button>
           </form>
         </section>
+     <!--  Sección principal de la vista -->
+        <section id="view-list" class="view-section">
+          <!--  Encabezado (Estilo terminal para el título y comando) -->
+          <div class="prompt-header">
+            <span class="tag">database@system:~$</span>
+            <h2>./query_candidates --all</h2>
+            <p class="section-desc">
+              Búsqueda reactiva y desglose visual de currículums guardados.
+            </p>
+          </div>
+<!--  Barra de herramientas (Filtros de búsqueda y campos de texto) -->
+          <div class="search-toolbar">
+            <div class="search-field select-field">
+              <label for="filter-category"><span>&gt;</span> Criterio</label>
+              <select id="filter-category">
+                <option value="all">Todo el perfil</option>
+                <option value="puesto">Puesto</option>
+                <option value="tecnologias">Tecnologías / Skills</option>
+                <option value="experiencia">Experiencia</option>
+                <option value="edad">Edad</option>
+              </select>
+            </div>
+
+            <div class="search-field text-field">
+              <label for="search-term"
+                ><span>&gt;</span> Búsqueda por texto</label
+              >
+              <input
+                type="text"
+                id="search-term"
+                placeholder="Escribe para filtrar..."
+              />
+            </div>
+          </div>
+<!--  Contenedor dinámico (Donde JavaScript renderiza las tarjetas de candidatos) -->
+          <div id="cv-cards-container" class="cards-grid"></div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
+    
