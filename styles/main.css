@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
+}
+
+:root {             /* variables para la pagina*/
+  --bg-dark: #0c0d12;
+  --surface: #13151f;
+  --surface-alt: #1a1e2e;
+  --surface-input: #090a0f;
+  --border: #334155;
+  --cyan: #38bdf8;
+  --cyan-hover: #7dd3fc;
+  --green: #4ade80;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --danger: #ef4444;
+}
+
+body {
+  background-color: var(--bg-dark); /* uso de las varaibles */
+  background-size: 32px 32px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+  color: var(--text);
+}
+
+.hidden {
+  display: none !important;
+}
