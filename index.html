@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Permite adaptar la página a diferentes tamaños de pantalla -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>CV Dispatcher & Registry Console</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/terminal.css" />
+    <link rel="stylesheet" href="styles/cards.css" />
+  </head>
+  <body>
+    <main class="terminal-window">
+      <header class="terminal-bar">
+    
+        <!-- Simulación de los botones de una ventana -->
+
+        <div class="window-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+
+        <nav class="terminal-nav">
+
+        <!-- Pestaña para crear un nuevo registro -->
+          <button type="button" class="nav-tab active" data-tab="view-form">
+            &gt;_ NUEVO_REGISTRO
+          </button>
+          <button type="button" class="nav-tab" data-tab="view-list">
+            ≡ CONSULTAR_REGISTROS (<span id="cv-counter">0</span>)
+          </button>
+        </nav>
+
+        <!-- Nombre de la terminal -->
+        <span class="terminal-title">cv_kernel.sh</span>
+      </header>
+
+      <div class="terminal-body">
+
+
+        <!-- Sección para introducir los datos de un nuevo candidato -->
+        <section id="view-form" class="view-section active">
+          <div class="prompt-header">
+            <span class="tag">admin@system:~$</span>
+            <h2>./dispatch_candidate</h2>
+            <p class="section-desc">
+              Carga la identidad, foto y archivo JSON estructurado del
+              postulante.
+            </p>
+          </div>
+
+
+          <!-- Formulario para registrar los datos del candidato -->
+          <form id="cv-form" class="terminal-form">
+
+        <!-- Apartado para subir y visualizar la fotografía -->
+            <div class="photo-uploader-row">
+              <div class="photo-preview" id="photo-preview-box">
+                <span id="photo-placeholder">SIN_FOTO</span>
+                <img
+                  id="photo-img"
+                  src=""
+                  alt="Previsualización"
+                  class="hidden"
+                />
+              </div>
+              <div class="photo-input-group">
+                <label for="input-photo"
+                  ><span>&gt;</span> Fotografía del Candidato</label
+                >
+                <input type="file" id="input-photo" accept="image/*" />
+                <span class="helper-text"
+                  >Formatos válidos: JPG, PNG, WEBP.</span
+                >
+              </div>
+            </div>
+
+            <!-- Primera fila del formulario: nombre y apellidos -->
+            <div class="row">
+              <div class="field">
+                <label for="input-nombre"><span>&gt;</span> Nombre</label>
+                <input
+                  type="text"
+                  id="input-nombre"
+                  placeholder="Alex"
+                  required
+                />
+              </div>
+
+
+            <!-- Segunda fila del formulario: edad y puesto de trabajo -->  
+              <div class="field">
+                <label for="input-apellidos"><span>&gt;</span> Apellidos</label>
+                <input
+                  type="text"
+                  id="input-apellidos"
+                  placeholder="Vance"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="field">
+                <label for="input-edad"><span>&gt;</span> Edad</label>
+                <input
+                  type="number"
+                  id="input-edad"
+                  placeholder="28"
+                  min="16"
+                  max="99"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="input-puesto"
+                  ><span>&gt;</span> Puesto de trabajo</label
+                >
+                <input
+                  type="text"
+                  id="input-puesto"
+                  placeholder="DevOps Engineer"
+                  required
+                />
+              </div>
+            </div>
+
+
+            <!-- Apartado para seleccionar el archivo JSON del currículum -->
+            <div class="field">
+              <label><span>&gt;</span> Archivo JSON de Currículum</label>
+              <div class="file-dropzone" id="json-dropzone">
+
+                <!-- Permite seleccionar únicamente archivos JSON -->
+                <input
+                  type="file"
+                  id="input-json"
+                  accept=".json,application/json"
+                  required
+                />
+
+    <!-- Texto que indica cómo subir el archivo -->
+                <div class="file-text" id="json-label">
+                  <span>Seleccionar archivo</span> o arrástralo aquí
+                </div>
+                <div class="file-meta">
+                  FORMATO: .JSON (Experiencia, Skills, Proyectos, etc.)
+                </div>
+              </div>
+            </div>
+
+
+    <!-- Botón para enviar el formulario y almacenar el registro -->
+            <button type="submit" class="btn-exec">
+              [ALMACENAR_REGISTRO] ↵
+            </button>
+          </form>
+        </section>
